@@ -1,17 +1,10 @@
-import { useState } from "react";
 import Card from "../../shared/components/Card/Card";
 import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
-  const [state, setState] = useState(props.expense);
-  console.log(props);
-  const day = state.date.toLocaleString("en-US", { day: "2-digit" });
-  const month = state.date.toLocaleString("en-US", { month: "long" });
-  const year = state.date.getFullYear();
-
-  const changeTitleHandler = () => {
-    setState({ ...props.expense, title: "Booyah Bitches" });
-  };
+  const day = props.expense.date.toLocaleString("en-US", { day: "2-digit" });
+  const month = props.expense.date.toLocaleString("en-US", { month: "long" });
+  const year = props.expense.date.getFullYear();
 
   return (
     <Card className="expense-item">
@@ -21,10 +14,9 @@ const ExpenseItem = (props) => {
         <div className="expense-date__day">{day}</div>
       </div>
       <div className="expense-item__description">
-        <h2>{state.title}</h2>
-        <div className="expense-item__price">${state.amount}</div>
+        <h2>{props.expense.title}</h2>
+        <div className="expense-item__price">${props.expense.amount}</div>
       </div>
-      <button onClick={changeTitleHandler}>Click Me</button>
     </Card>
   );
 };
