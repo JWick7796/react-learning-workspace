@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div>
       <NewExpense onFormSubmit={formSubmitHandler} />
-      <Expenses data={expensesData} />;
+      <Expenses data={expensesData} />
     </div>
   );
 };
